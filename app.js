@@ -6,6 +6,8 @@ var easypedia = function(pageName, next) {
 
 		if (parsed.type === "disambiguation")
 			easypedia(parsed.pages[0], next);
+		else if (parsed.type === "redirect")
+			easypedia(parsed.redirect, next);
 		else
 			next(parsed);
 

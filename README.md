@@ -16,6 +16,17 @@ easypedia(searchTerm, function(result) {
 });
 ```
 
+You can even pass an array, and it will pass the result to the callback.
+**Note:** the callback will be run for each wikipedia article, but the results
+will not be combined together. They will be treated separately after being
+openned.
+```javascript
+var searchTerms = ["Unidan", "Voat"];
+easypedia(searchTerms, function(result) {
+	// do something with each result
+});
+```
+
 To get the links included in a page, use ```result.links```
 
 For those wondering, this repository follows semver.

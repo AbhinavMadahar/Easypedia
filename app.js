@@ -45,6 +45,10 @@ extractLinks = function(result, next) {
 };
 
 var easypedia = function(pageName, next) {
+	if (typeof(pageName) === "object")
+		for (var i in pageName)
+			easypedia(pageName[i], next);
+
 	wtf_wikipedia.from_api(pageName, "en", function(page) {
 		var parsed = wtf_wikipedia.parse(page);
 

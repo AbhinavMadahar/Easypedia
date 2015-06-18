@@ -57,6 +57,7 @@ var easypedia = function(pageName, next) {
 			else if (parsed.type === "redirect")
 				easypedia(parsed.redirect, next);
 			else {
+				parsed.name = pageName;
 				extractLinks(parsed, next);
 			}
 		});

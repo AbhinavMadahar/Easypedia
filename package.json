@@ -1,6 +1,6 @@
 {
   "name": "easypedia",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Getting Wikipedia minus the headache",
   "main": "app.js",
   "scripts": {

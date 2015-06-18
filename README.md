@@ -16,4 +16,6 @@ easypedia(searchTerm, function(result) {
 });
 ```
 
+To get the links included in a page, use ```result.links```
+
 For those wondering, this repository follows semver.

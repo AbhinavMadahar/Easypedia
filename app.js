@@ -48,19 +48,18 @@ var easypedia = function(pageName, next) {
 	if (typeof(pageName) === "object")
 		for (var i in pageName)
 			easypedia(pageName[i], next);
+	else
+		wtf_wikipedia.from_api(pageName, "en", function(page) {
+			var parsed = wtf_wikipedia.parse(page);
 
-	wtf_wikipedia.from_api(pageName, "en", function(page) {
-		var parsed = wtf_wikipedia.parse(page);
-
-		if (parsed.type === "disambiguation")
-			easypedia(parsed.pages[0], next);
-		else if (parsed.type === "redirect")
-			easypedia(parsed.redirect, next);
-		else {
-			extractLinks(parsed, next);
-		}
-
-	});
+			if (parsed.type === "disambiguation")
+				easypedia(parsed.pages[0], next);
+			else if (parsed.type === "redirect")
+				easypedia(parsed.redirect, next);
+			else {
+				extractLinks(parsed, next);
+			}
+		});
 };
 
 module.exports = easypedia;

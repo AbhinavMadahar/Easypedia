@@ -1,8 +1,8 @@
 {
   "name": "easypedia",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Getting Wikipedia minus the headache",
-  "main": "app.js",
+  "main": "compiled/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +22,9 @@
   "homepage": "https://github.com/AbhinavMadahar/Easypedia",
   "dependencies": {
     "wtf_wikipedia": "^0.1.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1"
   }
 }

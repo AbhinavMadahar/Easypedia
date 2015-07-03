@@ -16,6 +16,9 @@ easypedia(searchTerm, function(result) {
 });
 ```
 
+That said, sometimes a page does not exist. To check if it exists, please
+use `result.exists`.
+
 You can even pass an array, and it will pass the result to the callback.
 **Note:** the callback will be run for each wikipedia article, but the results
 will not be combined together. They will be treated separately after being

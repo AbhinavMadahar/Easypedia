@@ -58,6 +58,7 @@ var easypedia = function(pageName, next) {
 				easypedia(parsed.redirect, next);
 			else {
 				parsed.name = pageName;
+				parsed.exists = parsed.text.hasOwnProperty("Intro");
 				extractLinks(parsed, next);
 			}
 		});

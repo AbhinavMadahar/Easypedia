@@ -87,7 +87,7 @@ If you pass an `options` object when using an array of searchTerms, the options 
 ### Language
 By default, Easypedia uses the English wikipedia. To change this, add a language property along with the language you want.
 
-The language property must be an ISO 639-1 language code, such as `fr` or `en`. The only exception to this rule is Simple English, which is a wikipedia written entirely in easy-to-understand English. It is represented by `simple`. **NOTE**: there codes are not case-sensitive.
+The language property must be an ISO 639-1 language code, such as `fr` or `en`. The only exception to this rule is Simple English, which is a wikipedia written entirely in easy-to-understand English. It is represented by `simple`. **NOTE**: the codes are not case-sensitive.
 
 ```javascript
 easypedia(searchTerm, {language:"fr"}, callback); // French

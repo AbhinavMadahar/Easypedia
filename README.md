@@ -1,6 +1,6 @@
 Easypedia
 =========
-Easypedia is a single function, that manages redirects, disambiguation, and parsing to pass a clean JSON into a callback. Example use case:
+Easypedia is a single function that manages redirects, disambiguation, and parsing to pass a clean JSON into a callback. Example use case:
 ```javascript
 var easypedia = require("easypedia");
 

@@ -10,6 +10,20 @@ extractLinks = (result, next) ->
 
     next result
 
+parser = (markup) ->
+
+    # initial parsing
+    parsed = wtf_wikipedia.parse markup
+
+    # further parsing
+    if parsed.type is "page"
+        purify =
+            section: (section) ->
+                section.filter (sentence) -> sentence.text.slice(0, 2) isnt "{{"
+        console.log purify.section parsed.text.Intro
+
+    parsed
+
 easypedia = (pageName, options, next) ->
     # make sure the inputs are all correct
     if not next? and options? # if the 3rd argument was not passed
@@ -27,7 +41,7 @@ easypedia = (pageName, options, next) ->
 
     else
         wtf_wikipedia.from_api pageName, language, (result) ->
-            parsed = wtf_wikipedia.parse result
+            parsed = parser result
 
             if parsed.type is "redirect"
                 easypedia parsed.redirect, options, next

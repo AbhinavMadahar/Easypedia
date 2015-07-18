@@ -20,7 +20,8 @@ parser = (markup) ->
         purify =
             section: (section) ->
                 section.filter (sentence) -> sentence.text.slice(0, 2) isnt "{{"
-        console.log purify.section parsed.text.Intro
+        for key, content of parsed.text
+            parsed.text[key] = purify.section content
 
     parsed
 

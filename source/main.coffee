@@ -1,29 +1,6 @@
 wtf_wikipedia = require 'wtf_wikipedia'
-
-extractLinks = (result, next) ->
-    result.links = []
-    for keySection, section of result.text
-        for keySentence, sentence of section
-            if sentence.links?
-                for link in sentence.links
-                    result.links.push link.page
-
-    next result
-
-parser = (markup) ->
-
-    # initial parsing
-    parsed = wtf_wikipedia.parse markup
-
-    # further parsing
-    if parsed.type is "page"
-        purify =
-            section: (section) ->
-                section.filter (sentence) -> sentence.text.slice(0, 2) isnt "{{"
-        for key, content of parsed.text
-            parsed.text[key] = purify.section content
-
-    parsed
+parse = require './parse.coffee'
+extractLinks = require './links.coffee'
 
 easypedia = (pageName, options, next) ->
     # make sure the inputs are all correct
@@ -42,7 +19,7 @@ easypedia = (pageName, options, next) ->
 
     else
         wtf_wikipedia.from_api pageName, language, (result) ->
-            parsed = parser result
+            parsed = parse result
 
             if parsed.type is "redirect"
                 easypedia parsed.redirect, options, next

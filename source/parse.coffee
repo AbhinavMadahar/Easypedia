@@ -1,6 +1,6 @@
 wtf_wikipedia = require 'wtf_wikipedia'
-purify = require './purify.coffee'
-links = require './links.coffee'
+purify = require './purify'
+links = require './links'
 
 module.exports = (markup) ->
     # initial parsing

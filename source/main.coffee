@@ -1,5 +1,5 @@
 wtf_wikipedia = require 'wtf_wikipedia'
-parse = require './parse.coffee'
+parse = require './parse'
 
 easypedia = (pageName, options, next) ->
     # make sure the inputs are all correct

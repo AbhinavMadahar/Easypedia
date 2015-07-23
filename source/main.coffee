@@ -1,6 +1,5 @@
 wtf_wikipedia = require 'wtf_wikipedia'
 parse = require './parse.coffee'
-extractLinks = require './links.coffee'
 
 easypedia = (pageName, options, next) ->
     # make sure the inputs are all correct
@@ -20,18 +19,16 @@ easypedia = (pageName, options, next) ->
     else
         wtf_wikipedia.from_api pageName, language, (result) ->
             parsed = parse result
+            parsed.name = pageName
+            parsed.language = language
 
             if parsed.type is "redirect"
                 easypedia parsed.redirect, options, next
             else if parsed.type is "disambiguation"
                 easypedia parsed.pages[0], options, next
             else if parsed.type is "page"
-                parsed.name = pageName
-                parsed.exists = parsed.text.Intro?
-                parsed.language = language
-
                 if parsed.exists
-                    extractLinks parsed, next
+                    next parsed
 
                 else if language isnt "en" and canChangeLanguage
                     options.language = "en"

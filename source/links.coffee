@@ -1,9 +1,16 @@
-module.exports = (result, next) ->
-    result.links = []
-    for keySection, section of result.text
-        for keySentence, sentence of section
-            if sentence?.links?
-                for link in sentence.links
-                    result.links.push link.page
+links = (source) ->
+    Array.prototype.contains = (token) ->
+        this.indexOf(token) isnt -1
 
-    next result
+    source.links = []
+    for title, content of source.text
+        for sentence in content
+            if sentence.links?
+                for link in sentence.links
+                    to = link.page or link.src
+                    if not source.links.contains to
+                        source.links.push to
+
+    return source.links
+
+module.exports = links

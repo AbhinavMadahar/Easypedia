@@ -1,6 +1,7 @@
 links = (source) ->
-    Array.prototype.contains = (token) ->
-        this.indexOf(token) isnt -1
+    include = (entry) ->
+        if -1 is source.links.indexOf entry
+            source.links.push entry
 
     source.links = []
     for title, content of source.text
@@ -8,8 +9,7 @@ links = (source) ->
             if sentence.links?
                 for link in sentence.links
                     to = link.page or link.src
-                    if not source.links.contains to
-                        source.links.push to
+                    include to
 
     return source.links
 

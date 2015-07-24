@@ -10,7 +10,6 @@ module.exports = (markup) ->
     if parsed.type isnt "page"
         return parsed
 
-
     # purify each section
     for key, content of parsed.text
         parsed.text[key] = purify.section content

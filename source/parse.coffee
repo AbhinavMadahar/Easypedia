@@ -14,6 +14,15 @@ renameLinks = (links) ->
 flatenTables = (tables) ->
   return if tables? then tables[0] else []
 
+collectLinks = (sections) ->
+  links = []
+  for section in sections
+    for sentence in section.content
+      if sentence.links?
+        for link in sentence.links
+          links.push link.to
+  return links
+
 module.exports = (name, language, parsed) ->
   sections = arrayifySections parsed.text
 
@@ -28,3 +37,4 @@ module.exports = (name, language, parsed) ->
   sections: sections
   infobox: parsed.infobox
   tables: flatenTables parsed.tables
+  links: collectLinks sections

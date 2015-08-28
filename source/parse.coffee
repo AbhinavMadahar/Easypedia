@@ -35,6 +35,4 @@ module.exports = (name, language, parsed) ->
   categories: parsed.categories
   images: parsed.images
   sections: sections
-  infobox: parsed.infobox
-  tables: flatenTables parsed.tables
   links: collectLinks sections

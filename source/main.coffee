@@ -12,6 +12,8 @@ module.exports = easypedia = (pagename, options, next) ->
 
   if not options.language?
     options.language = "en"
+  else if options.language.toLowerCase() is "simple"
+    options.language = "simple"
   else
     options.language = langify options.language
 

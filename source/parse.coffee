@@ -14,13 +14,15 @@ renameLinks = (links) ->
 flatenTables = (tables) ->
   return if tables? then tables[0] else []
 
-module.exports = (parsed) ->
+module.exports = (name, language, parsed) ->
   sections = arrayifySections parsed.text
 
   for section in sections
     for sentence in section.content
       sentence.links = sentence.links.map renameLinks if sentence.links?
 
+  name: name
+  language: language
   categories: parsed.categories
   images: parsed.images
   sections: sections

@@ -30,4 +30,4 @@ module.exports = easypedia = (pagename, options, next) ->
         easypedia parsed.redirect, options, next
 
       when 'page'
-        next null, parse parsed
+        next null, parse pagename, options.language, parsed

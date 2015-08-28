@@ -1,6 +1,6 @@
 wtf_wikipedia = require 'wtf_wikipedia'
 langify = require 'langify'
-parse = require './parse.coffee'
+parse = require './parse'
 config = require './config.json'
 
 module.exports = easypedia = (pagename, options, next) ->

@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/AbhinavMadahar/Easypedia",
   "dependencies": {
-    "wtf_wikipedia": "^0.1.5"
+    "langify": "^1.1.0",
+    "wtf_wikipedia": "^0.1.11"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

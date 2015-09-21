@@ -2,8 +2,8 @@
 
 # sections is the page.text object
 arrayifySections = (sections) ->
-  for title, content of sections
-    title: title
+  for key, content of sections
+    name: key
     content: content
 
 # takes a sentence.links and renames the keys to be more obvious

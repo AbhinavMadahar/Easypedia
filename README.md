@@ -28,7 +28,7 @@ categories: [...]
 The sections property is a title and an array of section objects in the form of:
 
 ```json
-title: "Intro",
+name: "Intro",
 content: [...]
 ```
 

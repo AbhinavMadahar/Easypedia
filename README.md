@@ -56,6 +56,14 @@ easypedia(searchTerm, options, callback);
 
 If you pass an `options` object when using an array of searchTerms, the options are applied to each searchTerm.
 
+### Cache
+To make things faster, Easypedia can store your pages in memory so that it doesn't have to make a Wikipedia request each time. Also, Easypedia will avoid having the page cache exceed 100 megabytes.
+
+To enable this, please pass in the following option to the options object
+```json
+cache: true
+```
+
 ### Language
 By default, Easypedia uses the English Wikipedia. To change this, add a language property along with the language you want. It is clever enough to know what you mean.
 

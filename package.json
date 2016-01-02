@@ -1,13 +1,10 @@
 {
   "name": "easypedia",
-  "version": "3.1.1",
-  "description": "Getting Wikipedia minus the headache",
-  "main": "compiled/main.js",
+  "version": "4.0.0",
+  "description": "Wikipedia minus the headache",
+  "main": "main.js",
   "scripts": {
-    "build": "gulp",
-    "prepublish": "npm run build",
-    "postpublish": "git add -A && git commit && git push",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postpublish": "git add -A && git commit && git push"
   },
   "repository": {
     "type": "git",

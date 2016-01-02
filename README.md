@@ -20,32 +20,40 @@ The simple structure of the page is as follows:
 name: "Canada"
 language: "en"
 links: [...]
-sections: {...}
+content: {...}
 categories: [...]
+isRelatedTo: (other) => ...
+relationTo: (other) => ...
 ```
 
 ### sections
-The sections property is a title and an array of section objects in the form of:
+The sections property denotes the an array of sections, such as
 
-```json
-name: "Intro",
-content: [...]
-```
-
-The `content` property is an array of section objects, which are themselves arrays of sentence objects. A sentence object takes the following form:
-
-```json
+```javascript
 {
-  "text": "Mexico is a spanish-speaking country in North America",
-  "links": [
-    {"to": "Mexico", "quoted": "Mexico"},
-    {"to": "hispanophone", "quoted": "spanish-speaking"}
-  ]
+	name: "Intro",
+	sentences: [...]
+}
+```
+The sentences are put in an array, with an example sentence being:
+```javascript
+{
+	content: "During the Iron Age, what is now Metropolitan France was inhabited by the Gauls, a Celtic people.",
+	links: [
+		{to: 'Iron Age', quoted: "Iron Age"},
+		{to: 'Gaul', quoted: "Gaul"},
+		{to: 'Celts', quoted: 'Celtic'}
+	]
 }
 ```
 
 ### categories
 `categories` is an array of various categories the page belongs to.
+
+### isRelatedTo and relationTo
+isRelatedTo accepts another page and determines if the 2 are related.
+
+relationTo finds how closely the 2 pages are related, with a high value being more closely related
 
 ## Options
 If you want to modify the behaviour of Easypedia, pass in an `options` argument in the middle as such:
@@ -55,14 +63,6 @@ easypedia(searchTerm, options, callback);
 ```
 
 If you pass an `options` object when using an array of searchTerms, the options are applied to each searchTerm.
-
-### Cache
-To make things faster, Easypedia can store your pages in memory so that it doesn't have to make a Wikipedia request each time. Also, Easypedia will avoid having the page cache exceed 100 megabytes.
-
-To enable this, please pass in the following option to the options object
-```json
-cache: true
-```
 
 ### Language
 By default, Easypedia uses the English Wikipedia. To change this, add a language property along with the language you want. It is clever enough to know what you mean.

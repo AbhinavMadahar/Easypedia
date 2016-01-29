@@ -125,12 +125,3 @@ module.exports = (pagename, options, next) => {
 		}
 	});
 }
-
-module.exports("United States", (err, hitler) => {
-	module.exports("Economy of the United States", (error, death) => {
-		console.log("Econ:", hitler.relationTo(death));
-	})
-	module.exports("Canada", (error, death) => {
-		console.log("Canada:", hitler.relationTo(death));
-	})
-})
